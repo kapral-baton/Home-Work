@@ -1,58 +1,74 @@
-const question = confirm('Tell me three most important words 💚');
+let suma = 0;
+let productSelected = 0;
+let bulka;
+let potato;
+let sauce;
+let formatted;
 
-if (question) {
-    const codeOfZero = 49;
-    const codeOfNine = 57;
-    let a = 1;
-    let text =[];
-
-    do {
-        let words = prompt(`Enter word #${a}`, '')
-        if (words !== null && words !== ``) {
-            let hasNumber = false;
-            for (let i = 0; i < words.length; i++) {
-                let tmpCode = words.charCodeAt(i);
-
-                if (tmpCode >= codeOfZero && tmpCode <= codeOfNine) {
-                    hasNumber = true;
-                    break;
-                }
-            }
-            if (!hasNumber) {
-                console.log(`Word #${a}: ${words}`)
-                let b = 0;
-                do {
-                    let type = prompt(`Choose type of transformation for "${words}":uppercase/lowercase/capitalize `,'uppercase');
-                    if (type === 'uppercase' || type === 'lowercase' ||  type === 'capitalize') {
-                        let result ;
-                        if (type === 'uppercase') {
-                            result = words.toUpperCase();
-                        } else if (type === 'lowercase') {
-                            result = words.toLowerCase();
-                        }else {
-                            result = words[0].toUpperCase() + words.slice(1);
-                        }
-                        b += 1;
-                        console.log(`Transform type for word#${a}: ${type}`);
-                        console.log(`Transformed word #${a}: ${result}`);
-                        console.log(`Sentance: ${result}`);
-                        text.push(result)
-                    }
-                }while(b < 1);
-                a += 1;
+do {
+    let rollType = prompt('hamburger or cheeseburger','');
+    if (rollType != null) {
+        formatted = rollType.replaceAll(` `,``).toLowerCase();
+        if (formatted === 'hamburger' ) {
+            suma += 10;
+            productSelected += 1;
+            bulka = 'hamburger';
+        } else if (formatted === 'cheeseburger') {
+            suma += 15;
+            let cheese = confirm('Would you like to add double cheese?');
+            if (cheese){
+                suma += 5 ;
+                productSelected += 1;
+                bulka = 'cheeseburger with cheese';
+            }else{
+                productSelected += 1;
+                bulka = 'cheeseburger';
             }
         }
-    } while (a < 4);
-    console.log('--------------------------');
-    console.log(`${text[0]} ${text[1]} ${text[2]}!`);
+    }
+} while ( productSelected < 1 );
+
+let needPotato = confirm(`Would you like potato?`);
+if (needPotato){
+    let typePotato = prompt(`Choose potato size: small/middle/big`,'');
+    if ( typePotato !== null && typePotato !== `` ) {
+        formatted = typePotato.replaceAll(` `,``).toLowerCase();
+        if (formatted === 'small'){
+            suma += 10;
+            potato = 'small';
+        }else if (formatted === 'middle'){
+            suma += 15;
+            potato = 'middle';
+        }else if (formatted === 'big'){
+            suma += 20;
+            potato = 'big';
+        }
+    }else {
+        suma += 10;
+        potato = 'small';
+    }
 }
 
+let needSauce = confirm(`Would you like sauce?`);
+if (needSauce) {
+    let chooseSauce = prompt(`Choose sauce: ketchup/mayonnaise`,'');
 
+    if ( chooseSauce !== null && chooseSauce !== `` ) {
+        formatted = chooseSauce.replaceAll(` `,``).toLowerCase();
+        if (formatted === 'ketchup'){
+            suma += 2;
+            sauce = 'ketchup';
+        }else if (formatted === 'mayonnaise'){
+            suma += 3;
+            sauce = 'mayonnaise';
+        }
+    }else {
+        suma += 2;
+        sauce = 'ketchup';
+    }
+}
 
-
-
-
-
-
-
-
+document.write(`<p>Bulka 🍔: ${bulka}</p>`);
+document.write(`<p>Potato 🍟::${potato}</p>`);
+document.write(`<p>Sauce 🧂:${sauce}</p>`);
+document.write(`<p>Price: ${suma}</p>`);
