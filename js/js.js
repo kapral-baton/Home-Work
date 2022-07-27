@@ -11,7 +11,7 @@ do {
             for (let i = 0; i < formatted ; i++) {
                 let randomValue = Math.round(Math.random()*10);
                 arr.push(randomValue);
-                sumaArr += randomValue;
+                sumaArr *= randomValue;
             }
             a+=1;
         }
