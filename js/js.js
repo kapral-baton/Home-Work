@@ -5,11 +5,11 @@ const products = [
     ['grape',18]
 ];
 
-function getPrice (products,seasonFunc = null) {
+function getPrice (products,seasonFunc) {
     const copiedProducts = [...products];
     let suma = 0;
     for (let i = 0; i < copiedProducts.length;i++) {
-        if (seasonFunc === null ) {
+        if (typeof seasonFunc === `function` ) {
             suma += copiedProducts[i][1];
         }else {
             suma += seasonFunc(copiedProducts[i][1]);
