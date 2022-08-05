@@ -18,6 +18,7 @@ function getPrice (products,seasonFunc = null) {
     return suma;
 }
 
+
 function summerValue(value){
     return value*0.8;
 }
