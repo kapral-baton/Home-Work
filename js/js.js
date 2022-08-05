@@ -6,7 +6,7 @@ const products = [
 ];
 
 function getPrice (products,seasonFunc) {
-    const copiedProducts = [...products];
+    const copiedProducts = JSON.stringify(products);
     let suma = 0;
     for (let i = 0; i < copiedProducts.length;i++) {
         if (typeof seasonFunc === `function` ) {
