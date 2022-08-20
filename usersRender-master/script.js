@@ -111,9 +111,9 @@ class User{
 			return "satisfactory";
 		}else if (mark <= 50 ) {
 			return "good";
-		}else if (mark <= 75 ) {
+		}else if (mark >= 75 && mark <= 99) {
 			return "very-good";
-		}else {
+		}else if (mark === 100) {
 			return "excellent";
 		}
 	}
