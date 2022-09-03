@@ -1,15 +1,21 @@
-let elements = document.querySelectorAll('ul > li:last-child');
-elements.forEach(item => item.classList.add('last'));
+const blockWidth = 100;
+const blockHeight = 100;
 
+let block = document.querySelector('.block');
+let wrapper = document.querySelector('.wrapper')
 
-function setFirstItemClassName(level) {
-    let liItem = [];
-    for (let i = 1 ; i < level ; i++) {
-        liItem += '> li > ul'
+function changeBlock(wrapper) {
+    const colorRange = ['0', '1','2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'];
+
+    let color = '#';
+    for(let i = 0; i < 6 ; i++){
+        color += colorRange[Math.floor(Math.random() * 16)];
     }
-
-    let element = document.querySelectorAll(`ul.root ${liItem} > li:first-child`);
-    element.forEach(item => item.classList.add('first'));
+    block.style.backgroundColor = color;
+    block.style.left = Math.floor(Math.random() * (wrapper.clientWidth - blockWidth)).toString() + 'px';
+    block.style.top = Math.floor(Math.random() * (wrapper.clientHeight - blockHeight)).toString() + 'px';
 }
 
-setFirstItemClassName(2);
+setInterval(() => changeBlock(wrapper),2000);
+
+
