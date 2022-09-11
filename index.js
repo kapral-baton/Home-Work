@@ -14,6 +14,7 @@ button.addEventListener('click',event => {
 
     element.style.backgroundColor = colors.value;
 
+
     switch (figure.value) {
         case "square" :
             element.classList.toggle(`${classFigur}`, false);
