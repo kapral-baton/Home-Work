@@ -65,12 +65,13 @@ function getMoney() {
                currency = prompt('Введите валюту одну из: USD, EUR, UAH, GBP');
 
                moneyBank = bankData[currency?.trim().toUpperCase()];
+               moneyUser = userData[currency?.trim().toUpperCase()];
 
-               if (moneyBank) {
+               if (moneyBank && moneyUser) {
                    success = false;
                }
            } while (success);
-           moneyUser = userData[currency?.trim().toUpperCase()];
+
            currency = currency.trim().toUpperCase();
 
 
