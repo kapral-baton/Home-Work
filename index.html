@@ -3,12 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        table {
+            border: 1px;
+        }
+
+    </style>
+
 </head>
 <body>
+    <div id="containerHero"></div>
+    <br><br>
 
-    <select id="jokesCategories"></select>
-    <ul id="jokesList"></ul>
+    <form id="formHero">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
 
+        <label for="comics">Choose universe:</label>
+        <select id="comics" name="comics"></select>
+
+        <label for="favourite"></label><br>
+        <input type="checkbox" id="favourite" name="favourite"><br>
+
+        <button id="submitButton" type="submit">Submit</button>
+    </form>
     <script src="./index.js"></script>
 </body>
 </html>
